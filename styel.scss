@@ -1,0 +1,201 @@
+// Variables
+$primary-color: #1A3838;
+$secondary-color: #2E8B57;
+$font-stack: 'Arial', sans-serif;
+
+// Mixins
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// Base styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font-stack;
+    line-height: 1.6;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+// Header
+.header {
+    background-color: $primary-color;
+    padding: 1rem 0;
+
+    .navbar {
+        @include flex-center;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 90%;
+        margin: 0 auto;
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+
+            li {
+                margin-left: 2rem;
+
+                a {
+                    color: #fff;
+
+                    &:hover {
+                        color: $secondary-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Hero section
+.hero-section {
+    height: 100vh;
+    background: linear-gradient(rgba(26, 56, 56, 0.8), rgba(46, 139, 87, 0.8)), url('hero-bg.jpg') no-repeat center center/cover;
+    @include flex-center;
+    color: #fff;
+    text-align: center;
+
+    .hero-content {
+        .hero-title {
+            font-size: 3rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .hero-button {
+            padding: 0.75rem 1.5rem;
+            background-color: $secondary-color;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+
+            &:hover {
+                background-color: darken($secondary-color, 10%);
+            }
+        }
+    }
+}
+
+// About section
+.about-section,
+.projects-section,
+.contact-section {
+    padding: 4rem 0;
+    text-align: center;
+
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    p,
+    form {
+        width: 60%;
+        margin: 0 auto;
+    }
+}
+
+// Projects section
+.projects-section {
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+
+        .project-card {
+            background-color: #f4f4f4;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+            img {
+                width: 100%;
+                height: auto;
+                border-radius: 5px;
+            }
+
+            h3 {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
+
+// Contact section
+.contact-section {
+    form {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            margin-top: 1rem;
+            text-align: left;
+        }
+
+        input,
+        textarea,
+        button {
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        button {
+            background-color: $secondary-color;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+
+            &:hover {
+                background-color: darken($secondary-color, 10%);
+            }
+        }
+    }
+}
+
+// Footer
+.footer {
+    background-color: $primary-color;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+
+    .social-icons {
+        margin-top: 1rem;
+
+        a {
+            color: #fff;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+
+            &:hover {
+                color: $secondary-color;
+            }
+        }
+    }
+}
